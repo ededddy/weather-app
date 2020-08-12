@@ -1,0 +1,17 @@
+{
+  "name": "api-wrapper",
+  "version": "1.0.0",
+  "description": "Wrapper for metaweather APIs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Eddy Lei Sio Kei",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "koa": "^2.13.0",
+    "koa-router": "^9.1.0"
+  }
+}
