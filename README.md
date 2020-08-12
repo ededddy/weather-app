@@ -4,6 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `cd api-wrapper && npm run dev`
+
+Runs the API wrapper in development mode. <br />
+
+### `cd api-wrapper && npm run start`
+
+Runs the API wrapper in deployment mode. <br />
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
