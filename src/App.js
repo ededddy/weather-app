@@ -7,9 +7,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const App = () => (
   <div
     style={{ backgroundImage: `url(${background})`, opacity: 0.75 }}
-    className="bg-fixed bg-cover bg-center flex h-screen justify-center flex-col items-center bg-opacity-75"
+    className="bg-fixed bg-cover  bg-center flex h-screen justify-center flex-col items-center bg-opacity-75"
   >
-    <div className="text-center font-sans  container bg-gray-200 py-2 rounded-lg shadow-2xl shadow-inner">
+    <div
+      style={{ maxHeight: "90%" }}
+      className="text-center font-sans container bg-gray-200 py-2 rounded-lg shadow-2xl shadow-inner overflow-y-scroll"
+    >
       <Router>
         <Switch>
           <Route exact path="/">

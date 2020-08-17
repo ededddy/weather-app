@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./assets/css/tailwind.output.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "../node_modules/react-vis/dist/style.css";
 
 ReactDOM.render(
   <React.StrictMode>

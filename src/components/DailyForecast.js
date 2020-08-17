@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import weather from "../assets/svg/commons";
+import TempChart from "./TempChart";
 
 export default function DailyForecast() {
   const { year, month, date } = useParams();
@@ -17,10 +18,10 @@ export default function DailyForecast() {
       const long = position.coords.longitude;
       if (!isLoaded) {
         console.log(
-          `http://localhost:3001/day/${`${year}/${month}/${date}`}?latt=${latt}&long=${long}`
+          `http://localhost:7331/day/${`${year}/${month}/${date}`}?latt=${latt}&long=${long}`
         );
         fetch(
-          `http://localhost:3001/day/${`${year}/${month}/${date}`}?latt=${latt}&long=${long}`
+          `http://localhost:7331/day/${`${year}/${month}/${date}`}?latt=${latt}&long=${long}`
         )
           .then((res) => res.json())
           .then((result) => {
@@ -33,6 +34,19 @@ export default function DailyForecast() {
       navigator.geolocation.getCurrentPosition(handlePosition);
     // eslint-disable-next-line
   }, [isLoaded]);
+
+  const prepareData = () => {
+    let ret = [];
+    vals.slice(0, 5).forEach((elem) => {
+      ret.push({
+        date: new Date(elem.created),
+        theTemp: elem.the_temp,
+        maxTemp: elem.max_temp,
+        minTemp: elem.min_temp,
+      });
+    });
+    return ret;
+  };
 
   if (!isLoaded) {
     return (
@@ -107,6 +121,9 @@ export default function DailyForecast() {
               <span className="px-3 ">{vals[0].wind_direction_compass}</span>
             </h1>
           </div>
+        </div>
+        <div className="w-full mx-auto">
+          <TempChart data={prepareData()} />
         </div>
       </div>
     );

@@ -10,12 +10,12 @@ export default function Forecasts() {
     const handlePosition = (position) => {
       const latt = position.coords.latitude;
       const long = position.coords.longitude;
-      console.log(`http://localhost:3001/?latt=${latt}&long=${long}`);
+      console.log(`http://localhost:7331/?latt=${latt}&long=${long}`);
       if (!isLoaded) {
-        fetch(`http://localhost:3001/?latt=${latt}&long=${long}`)
+        fetch(`http://localhost:7331/?latt=${latt}&long=${long}`)
           .then((res) => res.json())
           .then((result) => {
-            setVals(result[0]);
+            setVals(result);
             setIsLoaded(true);
           });
       }
